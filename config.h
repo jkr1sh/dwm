@@ -5,17 +5,17 @@
 #define TERMCLASS "St"
 
 /* appearance */
-static unsigned int borderpx  = 4;        /* border pixel of windows */
+static unsigned int borderpx  = 3;        /* border pixel of windows */
 static unsigned int snap      = 32;       /* snap pixel */
-static unsigned int gappih    = 4;       /* horiz inner gap between windows */
-static unsigned int gappiv    = 4;       /* vert inner gap between windows */
-static unsigned int gappoh    = 0;       /* horiz outer gap between windows and screen edge */
-static unsigned int gappov    = 0;       /* vert outer gap between windows and screen edge */
+static unsigned int gappih    = 8;       /* horiz inner gap between windows */
+static unsigned int gappiv    = 8;       /* vert inner gap between windows */
+static unsigned int gappoh    = 8;       /* horiz outer gap between windows and screen edge */
+static unsigned int gappov    = 8;       /* vert outer gap between windows and screen edge */
 static int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
-static int smartgaps          = 1;        /* 1 means no outer gap when there is only one window */
+static int smartgaps          = 0;        /* 1 means no outer gap when there is only one window */
 static int showbar            = 1;        /* 0 means no bar */
 static int topbar             = 1;        /* 0 means bottom bar */
-static char *fonts[]          = { "SourceCodePro:size=8", "JoyPixels:pixelsize=8:antialias=true:autohint=true"  };
+static char *fonts[]          = { "FreeMono:size=8", "JoyPixels:pixelsize=8:antialias=true:autohint=true"  };
 static char normbgcolor[]           = "#222222";
 static char normbordercolor[]       = "#444444";
 static char normfgcolor[]           = "#bbbbbb";
@@ -243,7 +243,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,		XK_Page_Up,	shifttag,	{ .i = -1 } },
 	{ MODKEY,			XK_Page_Down,	shiftview,	{ .i = +1 } },
 	{ MODKEY|ShiftMask,		XK_Page_Down,	shifttag,	{ .i = +1 } },
-	{ MODKEY,			XK_Insert,	spawn,		SHCMD("xdotool type $(grep -v '^#' ~/.local/share/larbs/snippets | dmenu -i -l 50 | cut -d' ' -f1)") },
+	/*{ MODKEY,			XK_Insert,	spawn,		SHCMD(},*/
 
 	/*{ MODKEY,			XK_F1,		spawn,		SHCMD() },*/
 	/*{ MODKEY,			XK_F2,		spawn,		SHCMD("") },*/
@@ -260,9 +260,9 @@ static Key keys[] = {
 	{ MODKEY,			XK_space,	zoom,		{0} },
 	{ MODKEY|ShiftMask,		XK_space,	togglefloating,	{0} },
 
-	{ 0,				XK_Print,	spawn,		SHCMD("maim pic-full-$(date '+%y%m%d-%H%M-%S').png") },
-	{ ShiftMask,			XK_Print,	spawn,		SHCMD("maimpick") },
-	{ MODKEY,			XK_Print,	spawn,		SHCMD("dmenurecord") },
+	{ MODKEY,			XK_Print,	spawn,		SHCMD("scrot") },
+	{ ShiftMask,			XK_Print,	spawn,		SHCMD("maim ~/pix/ss/pic-full-$(date '+%y%m%d-%H%M-%S').png") },
+	/*{ MODKEY,			XK_Print,	spawn,		SHCMD("dmenurecord") },*/
 	{ MODKEY|ShiftMask,		XK_Print,	spawn,		SHCMD("dmenurecord kill") },
 	{ MODKEY,			XK_Delete,	spawn,		SHCMD("dmenurecord kill") },
 	{ MODKEY,			XK_Scroll_Lock,	spawn,		SHCMD("killall screenkey || screenkey &") },
