@@ -161,7 +161,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,		XK_q,		spawn,		SHCMD("sysact") },
 	{ MODKEY,			XK_w,		spawn,		SHCMD("$BROWSER") },
 	{ MODKEY|ShiftMask,		XK_w,		spawn,		SHCMD(TERMINAL " -e sudo nmtui") },
-	/* { MODKEY,			XK_e,		spawn,		SHCMD() },*/
+	{ MODKEY,			XK_e,		spawn,		SHCMD(TERMINAL " -e nvim") },
 	/* { MODKEY|ShiftMask,		XK_e,		spawn,		SHCMD() },*/
 	{ MODKEY,			XK_r,		spawn,		SHCMD(TERMINAL " -e lf") },
 	{ MODKEY|ShiftMask,		XK_r,		spawn,		SHCMD(TERMINAL " -e htop") },
